@@ -1,0 +1,42 @@
+{
+  "name": "carousel-recommend-listings",
+  "version": "1.0.0",
+  "description": "AWayHome: carousel and recommended listings service",
+  "main": "app.js",
+  "repository": "https://github.com/hrla33-falcons/carousel-recommend-listings.git",
+  "author": "Aria Keshmiri <ariakesh@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server/app.js",
+    "generate": "node db/dataGen.js > info.csv",
+    "seed": "mongoimport -d carousel -c listings --type csv --file info.csv -f listingID,images,rooms,occupancy,reviews,price,similar --numInsertionWorkers 8",
+    "sass": "sass --watch src/assets/sass:dist",
+    "build": "webpack -d --watch"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "aws-sdk": "^2.585.0",
+    "axios": "^0.19.0",
+    "babel-loader": "^8.0.6",
+    "body-parser": "^1.19.0",
+    "cli-progress": "^3.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "json2csv": "^4.5.4",
+    "mongoose": "^5.8.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-star-ratings": "^2.3.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {
+    "css-loader": "^3.3.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1"
+  }
+}

@@ -20,9 +20,8 @@ const DataRetriever = (cb) => {
   axios.get(`/carousel-service/${id}`)
     .then(response =>
       {
-      images = response.data.images;
-
-      getSimilar(response.data.similar, similarListings => {
+      images = JSON.parse(response.data.images);
+      getSimilar(JSON.parse(response.data.similar), similarListings => {
         let data = {
           images,
           similarListings

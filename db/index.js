@@ -19,7 +19,7 @@ const listingSchema = new mongoose.Schema({
   ratings: Number,
   location: String,
   price: Number,
-  similar: [Number]
+  similar: [String]
 });
 
-module.exports.Listing = mongoose.model('Listing', listingSchema);
+module.exports.listings = mongoose.model('listings', listingSchema);

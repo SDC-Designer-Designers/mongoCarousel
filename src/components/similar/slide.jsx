@@ -4,13 +4,13 @@ const randomNum = max => Math.floor(Math.random() * max);
 
 const Slide = ({ listing }) => {
   let {
-    images,
     rooms,
     occupancy,
     price,
     ratings,
     reviews
   } = listing;
+  let images = JSON.parse(listing.images)
   let idx = randomNum(images.length);
   return (
     <div className="similar-slide">

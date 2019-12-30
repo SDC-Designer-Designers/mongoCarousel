@@ -1,7 +1,7 @@
 const { Parser } = require('json2csv');
 const fields = ['listingID', 'images', 'rooms', 'occupancy', 'reviews', 'price', 'similar']
 
-for(var i = 1e5; i > 0; i--){
+for(var i = 1e7; i > 0; i--){
   const randomNum = max => {
     return Math.floor(Math.random() * max);
   };

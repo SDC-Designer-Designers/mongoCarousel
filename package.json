@@ -11,6 +11,9 @@
     "generate": "node db/dataGen.js > info.csv",
     "seed": "mongoimport -d carousel -c listings --type csv --file info.csv -f listingID,images,rooms,occupancy,reviews,price,similar --numInsertionWorkers 8",
     "stressGet": "ab -n 1000 -c 100  -k  http://localhost:3002/carousel-service/9",
+    "stressPost": "ab -p /Users/ariakesh/mongoCarousel/data.json -T application/json -c 100 -n1000 http://localhost:3002/poster",
+    "stressPut": "ab -u /Users/ariakesh/mongoCarousel/data.json -T application/json -c 100 -n1000 http://localhost:3002/put",
+    "stressDelete": "ab -m DELETE -c 100 -n1000 http://localhost:3002/delete",
     "sass": "sass --watch src/assets/sass:dist",
     "build": "webpack -d --watch"
   },

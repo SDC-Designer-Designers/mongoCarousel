@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/carousel', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useCreateIndex: true
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
@@ -11,7 +12,7 @@ db.once('open', () => {
 });
 
 const listingSchema = new mongoose.Schema({
-  listingID: Number,
+  listingID: {type:Number, index:true},
   images: [String],
   rooms: Number,
   occupancy: Number,
@@ -23,3 +24,4 @@ const listingSchema = new mongoose.Schema({
 });
 
 module.exports.listings = mongoose.model('listings', listingSchema);
+module.exports.db = db
